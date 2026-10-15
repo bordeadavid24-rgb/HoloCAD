@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-10-14T18:31:36.445Z",
+        "reason": "Agent retained Geist because the user's HoloCAD brief explicitly identifies Geist as the preferred interface typeface."
+      }
+    ]
+  }
+}

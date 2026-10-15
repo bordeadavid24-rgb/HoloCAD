@@ -1,0 +1,575 @@
+/* The product is the interface. Blue remains in the optics, not in the type. */
+.engine-experience {
+  width: 100%;
+}
+.immersive-engine {
+  position: relative;
+  min-height: 740px;
+  padding: 0;
+  border: 1px solid #242931;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0b0e13;
+}
+.immersive-engine > .scene-viewport {
+  height: 620px;
+  flex: none;
+  width: 100%;
+}
+.immersive-engine .scene-viewport > .scene-viewport {
+  height: 100%;
+}
+.immersive-engine .viewer-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+  padding: 28px 32px;
+  font-size: 12px;
+}
+.engine-instruction {
+  position: absolute;
+  bottom: 115px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+  font-size: 12px;
+}
+.engine-toolbar {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 32px;
+  border-top: 1px solid #232932;
+}
+.engine-toolbar .button {
+  margin: 0;
+}
+.drag-hint {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  align-items: center;
+}
+.engine-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.part-annotation {
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  padding: 25px 24px;
+  background: #14191f;
+  border: 1px solid #41474d;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.28);
+  cursor: default;
+  touch-action: manipulation;
+}
+.part-annotation::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 1px;
+  background: #737c85;
+  top: 50%;
+  left: -35px;
+}
+.part-annotation h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  padding-right: 10px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.part-annotation p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.part-caption {
+  font-size: 10px;
+  color: #c2c6ca;
+}
+.annotation-close {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+}
+.narration-status {
+  display: block;
+  margin-top: 18px;
+  font-size: 10px;
+  color: #c9c6c1;
+}
+.assembly-annotation {
+  right: 30px;
+  top: 90px;
+}
+.engine-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 4px;
+}
+.engine-caption p {
+  font-size: 10px;
+  max-width: 550px;
+}
+.accessible-parts {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+}
+.accessible-parts select {
+  border: 1px solid #363d46;
+  border-radius: 6px;
+  padding: 9px;
+  font-size: 11px;
+  max-width: 170px;
+}
+
+/* Narrated, pre-rendered component breakdown. Playback is explicitly requested. */
+.hardware-film {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #080b10;
+  border: 1px solid #262d35;
+  border-radius: 24px;
+}
+.hardware-film video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.hardware-film video::cue {
+  font:
+    400 14px Geist,
+    sans-serif;
+  color: #f5f7fa;
+  background: rgb(5 6 9 / 0.85);
+}
+.hardware-film-intro {
+  position: absolute;
+  inset: auto 0 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  text-align: center;
+}
+.hardware-film-intro > span {
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+.hardware-film-intro p {
+  font-size: 11px;
+}
+.film-control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.film-control-row > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.film-control-row > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.film-control-row .subtle-button {
+  font-size: 11px;
+}
+
+/* The cinematic presentation becomes an engineering proposal. */
+.technical-section {
+  border-top: 1px solid #282f38;
+  margin-top: 35px;
+}
+.technical-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+.technical-heading p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.technical-blueprint {
+  border-block: 1px solid #414a55;
+  padding-block: 30px 38px;
+}
+.blueprint-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 25px;
+}
+.blueprint-top h3 {
+  font-size: 19px;
+  font-weight: 500;
+}
+.blueprint-top > span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.architecture-flow {
+  display: grid;
+  grid-template-columns: 1fr 90px 1.3fr 90px 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-top: 60px;
+}
+.architecture-flow > div > span {
+  font-size: 10px;
+  color: #b8bec5;
+}
+.architecture-flow h4 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 10px;
+  letter-spacing: -0.03em;
+}
+.architecture-flow p {
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.7;
+}
+.architecture-connector {
+  width: 100%;
+  height: 1px;
+  background: #5e6874;
+  position: relative;
+}
+.architecture-connector::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid #929ca6;
+  border-right: 1px solid #929ca6;
+  transform: rotate(45deg);
+}
+.intelligence-branch {
+  margin: 45px auto 0;
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+  padding-top: 35px;
+}
+.branch-line {
+  width: 1px;
+  background: #5e6874;
+  height: 22px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+.intelligence-branch h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.intelligence-branch p {
+  font-size: 11px;
+  margin-top: 9px;
+}
+.engineering-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-top: 80px;
+}
+.engineering-column h3 {
+  font-size: 33px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+.engineering-column dl {
+  margin: 0;
+}
+.engineering-column dl > div {
+  border-top: 1px solid #2c333d;
+  padding-block: 24px;
+}
+.engineering-column dt {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.engineering-column dd {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 440px;
+}
+.build-sequence {
+  margin-top: 80px;
+}
+.build-sequence > h3 {
+  font-size: 32px;
+  font-weight: 500;
+}
+.build-sequence ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
+  list-style: none;
+  gap: 28px;
+  margin: 35px 0 0;
+}
+.build-sequence li {
+  border-top: 1px solid #48525d;
+  padding-top: 24px;
+}
+.build-sequence li > span {
+  font-size: 11px;
+  color: #b8bdc4;
+}
+.build-sequence h4 {
+  font-size: 16px;
+  margin-top: 25px;
+  font-weight: 500;
+}
+.build-sequence p {
+  font-size: 11px;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1100px) {
+  .engine-toolbar {
+    gap: 14px;
+    padding-inline: 24px;
+  }
+  .drag-hint {
+    display: none;
+  }
+  .architecture-flow {
+    gap: 16px;
+    grid-template-columns: 1fr 35px 1.3fr 35px 1fr;
+  }
+  .engineering-columns {
+    gap: 55px;
+  }
+}
+@media (max-width: 767px) {
+  .immersive-engine {
+    min-height: 610px;
+    border-radius: 18px;
+  }
+  .immersive-engine > .scene-viewport {
+    height: 440px;
+  }
+  .immersive-engine:has(.part-annotation) > .scene-viewport {
+    height: 630px;
+  }
+  .immersive-engine .scene:has(.part-annotation) canvas {
+    height: 400px;
+  }
+  .immersive-engine .viewer-heading {
+    padding: 20px;
+    font-size: 9px;
+  }
+  .immersive-engine .viewer-heading span:last-child {
+    display: none;
+  }
+  .engine-instruction {
+    bottom: 145px;
+    padding-inline: 20px;
+    font-size: 10px;
+  }
+  .engine-toolbar {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+  }
+  .engine-actions {
+    gap: 17px;
+    width: 100%;
+    justify-content: center;
+  }
+  .part-annotation {
+    width: calc(100% - 32px);
+    left: 16px !important;
+    top: auto !important;
+    right: auto;
+    bottom: 18px;
+    transform: none !important;
+    padding: 20px;
+  }
+  .part-annotation::before {
+    display: none;
+  }
+  .part-annotation h3 {
+    font-size: 21px;
+  }
+  .part-annotation p {
+    font-size: 11px;
+  }
+  .part-annotation .narration-status {
+    margin-top: 12px;
+  }
+  .engine-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .engine-caption p {
+    font-size: 9px;
+  }
+  .accessible-parts {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 10px;
+  }
+  .hardware-film {
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+  }
+  .hardware-film-intro {
+    bottom: 7%;
+    gap: 12px;
+  }
+  .hardware-film-intro > span {
+    font-size: 20px;
+  }
+  .hardware-film-intro .button {
+    min-height: 43px;
+    font-size: 11px;
+  }
+  .hardware-film-intro p {
+    font-size: 9px;
+  }
+  .film-control-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .film-control-row > span {
+    font-size: 10px;
+  }
+  .film-control-row > div {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .technical-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    gap: 22px;
+  }
+  .technical-heading p {
+    font-size: 14px;
+  }
+  .blueprint-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .blueprint-top h3 {
+    font-size: 17px;
+  }
+  .blueprint-top > span {
+    font-size: 9px;
+  }
+  .architecture-flow {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+    gap: 23px;
+  }
+  .architecture-connector {
+    width: 1px;
+    height: 24px;
+    margin-left: 15px;
+  }
+  .architecture-connector::after {
+    top: auto;
+    bottom: 0;
+    right: -3px;
+    transform: rotate(135deg);
+  }
+  .architecture-flow h4 {
+    font-size: 20px;
+    margin-top: 7px;
+  }
+  .architecture-flow p {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+  .intelligence-branch {
+    text-align: left;
+    margin: 25px 0 0;
+    padding-top: 25px;
+  }
+  .branch-line {
+    left: 15px;
+  }
+  .engineering-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .engineering-column h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  .engineering-column dl > div {
+    padding-block: 20px;
+  }
+  .engineering-column dt {
+    font-size: 15px;
+  }
+  .engineering-column dd {
+    font-size: 11px;
+  }
+  .build-sequence {
+    margin-top: 50px;
+  }
+  .build-sequence > h3 {
+    font-size: 28px;
+  }
+  .build-sequence ol {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .build-sequence li {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+  }
+  .build-sequence h4 {
+    margin-top: 0;
+  }
+  .build-sequence p {
+    margin-top: 7px;
+  }
+}

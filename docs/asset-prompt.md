@@ -1,0 +1,7 @@
+# Concept imagery
+
+Generated with the built-in image generation tool and saved as `public/images/holocad-studio.jpg`. The original PNG is also preserved. This image is speculative product imagery, not a photograph of an existing prototype.
+
+## Prompt
+
+Use case: product-mockup. Asset type: wide 3:2 product photograph for HoloCAD educational hardware landing page. Create a photorealistic concept product scene of a believable compact tabletop Pepper's Ghost optical display. The device has a low square graphite aluminum plinth with small rounded corners, a subtle front horizontal speaker grille, a flat square dark top display, and a transparent four-sided square pyramid sitting on top, apex upward, clear glass edges. Inside the pyramid a small luminous cyan mechanical turbine rotor appears suspended as a reflected optical illusion. The device sits on a charcoal laboratory desk in a contemporary university STEM studio, with a closed silver laptop nearby and softly blurred architectural window light behind. Close three quarter view, product is main focus. Crisp physical materials, elegant Samsung product campaign photography, neutral dark palette with only icy cyan illumination, subtle rim lighting, realistic manufacturing construction. Horizontal composition, generous breathing room, restrained cinematic photography. No text, no logos, no floating UI, no people, no sci-fi beams. This is concept imagery of a device under development.

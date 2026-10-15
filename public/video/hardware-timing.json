@@ -1,0 +1,35 @@
+{
+  "duration": 32.175000000000004,
+  "chapters": [
+    {
+      "key": "optics",
+      "start": 2.589,
+      "title": "Suprafețele optice",
+      "text": "Reflexiile creează aparența unui obiect suspendat. Principiul Pepper’s Ghost."
+    },
+    {
+      "key": "display",
+      "start": 12.98,
+      "title": "Sursa de imagine",
+      "text": "Perspectivele modelului sunt pregătite de laptop și trimise către afișaj."
+    },
+    {
+      "key": "electronics",
+      "start": 17.345,
+      "title": "Electronica",
+      "text": "Alimentare și conectare, integrate în carcasa dispozitivului."
+    },
+    {
+      "key": "speaker",
+      "start": 22.024,
+      "title": "Modulul audio",
+      "text": "Explicații vocale care însoțesc explorarea modelului."
+    },
+    {
+      "key": "base",
+      "start": 26.157,
+      "title": "Un prototip de construit",
+      "text": "Materialele, dimensiunile și integrarea vor fi validate prin prototipare."
+    }
+  ]
+}
