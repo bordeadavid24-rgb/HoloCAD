@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
 import { Cube } from "@phosphor-icons/react/dist/csr/Cube";
+import { InstagramLogo } from "@phosphor-icons/react/dist/csr/InstagramLogo";
 import { X } from "@phosphor-icons/react/dist/csr/X";
 import CinematicIntro from "./components/CinematicIntro";
 import { Reveal } from "./components/Reveal";
@@ -192,6 +193,10 @@ function App() {
             Holo<span>CAD</span>
           </a>
           <p>Un proiect educațional în dezvoltare.</p>
+          <p>
+            Imaginile de prezentare și narațiunea sunt generate cu ajutorul
+            AI.
+          </p>
         </div>
         <div>
           <p>
@@ -199,6 +204,13 @@ function App() {
             <br />
             Liceul Internațional PREMS
           </p>
+          <a
+            href="https://www.instagram.com/holocad26/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramLogo size={14} /> @holocad26
+          </a>
         </div>
         <div>
           <p>© 2026 HoloCAD</p>

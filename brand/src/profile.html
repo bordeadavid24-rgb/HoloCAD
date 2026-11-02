@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><script src="device.js"></script><style>
+body{width:1080px;height:1080px;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+svg{width:640px;height:480px;margin-top:10px}
+.name{font-size:96px;letter-spacing:-2.5px;color:#fff}
+.name span{font-weight:200}.name b{font-weight:500}
+</style></head><body>
+<svg viewBox="-175 -140 350 270" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" id="d"></svg>
+<div class="name"><span>Holo</span><b>CAD</b></div>
+<script>
+const g = device({ yaw: 45, pitch: 24, scale: 112, cy: 44 });
+d.innerHTML = `<path d="${g.solid}" stroke-width="4.4"/><path d="${g.hidden}" stroke-width="1.6" opacity=".35"/><path d="${g.cube}" stroke-width="3"/>`;
+</script></body></html>

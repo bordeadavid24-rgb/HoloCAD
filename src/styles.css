@@ -193,10 +193,10 @@ button:active {
 .wordmark {
   font-size: 23px;
   letter-spacing: -1.2px;
-  font-weight: 600;
+  font-weight: 300;
 }
 .wordmark span {
-  font-weight: 400;
+  font-weight: 600;
 }
 .desktop-links {
   display: flex;

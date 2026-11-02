@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><link rel="stylesheet" href="slide-frame.css"><script src="device.js"></script><style>
+body{width:1200px;height:630px}
+.top{top:64px;left:72px}
+h1{top:150px;font-size:88px}
+.foot{border-top:0;justify-content:flex-start;left:72px;bottom:64px}
+.foot .sft{text-align:left}
+.foot .sft,.foot .sft div{color:#fff}
+</style></head><body>
+<div class="grid"></div>
+<div class="top"><div class="brand"><span>Holo</span><b>CAD</b></div></div>
+<h1>Modele CAD,<br><span>în aer.</span></h1>
+<svg id="d" viewBox="0 0 1200 630" style="position:absolute;inset:0" fill="none" stroke-linecap="round" stroke-linejoin="round"></svg>
+<div class="foot"><div class="sft mono"><div>Samsung Solve for Tomorrow</div>#SFTRomania2026</div></div>
+<script>
+const g = device({ yaw: 45, pitch: 24, scale: 200, cx: 860, cy: 400 });
+d.innerHTML = `<path d="${g.solid}" stroke="#fff" stroke-width="2.2"/>
+<path d="${g.hidden}" stroke="#fff" stroke-width="1.1" stroke-dasharray="6 8" opacity=".4"/>
+<path d="${g.cube}" stroke="#fff" stroke-width="1.6"/>`;
+</script></body></html>

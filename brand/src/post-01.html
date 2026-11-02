@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"><link rel="stylesheet" href="slide-frame.css"><script src="device.js"></script><style>
+.foot{border-top:0;justify-content:flex-end}
+.foot .sft,.foot .sft div{color:#fff}
+</style></head><body>
+<div class="grid"></div>
+<div class="top"><div class="brand"><span>Holo</span><b>CAD</b></div></div>
+<h1>Modele CAD,<br><span>în aer.</span></h1>
+<svg id="d" viewBox="0 0 1080 1350" style="position:absolute;inset:0" fill="none" stroke-linecap="round" stroke-linejoin="round"></svg>
+<div class="foot"><div class="sft mono"><div>Samsung Solve for Tomorrow</div>#SFTRomania2026</div></div>
+<script>
+const g = device({ yaw: 45, pitch: 24, scale: 300, cx: 540, cy: 870 });
+const P = g.P;
+// Callout: dot on the part, leader to an underline beneath the label.
+const call = (pt, tx, ty, label, anchor) => {
+  const a = P(pt);
+  const ex = anchor === "end" ? tx - 230 : tx + 230;
+  return `<circle cx="${a.x}" cy="${a.y}" r="5" fill="#fff"/><path d="M${a.x} ${a.y}L${ex} ${ty + 14}H${tx}" stroke="#fff" stroke-width="1" opacity=".6"/>
+  <text x="${tx}" y="${ty - 4}" text-anchor="${anchor}" style="fill:#fff;font-size:17px">${label}</text>`;
+};
+d.innerHTML = `<path d="${g.solid}" stroke="#fff" stroke-width="2.4"/>
+<path d="${g.hidden}" stroke="#fff" stroke-width="1.2" stroke-dasharray="6 8" opacity=".4"/>
+<path d="${g.cube}" stroke="#fff" stroke-width="1.8"/>` +
+  call([0.45, 0.5, -0.1], 1000, 520, "PIRAMIDĂ ACRILICĂ", "end") +
+  call([-0.15, 0.51, 0.15], 80, 560, "MODEL 3D", "start") +
+  call([-0.6, 0, 0.6], 80, 1040, "ECRAN", "start") +
+  call([1, -0.08, 0.55], 1000, 1090, "CONTROL + AI", "end");
+</script></body></html>

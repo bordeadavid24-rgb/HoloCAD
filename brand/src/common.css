@@ -1,0 +1,15 @@
+@font-face{font-family:Geist;font-weight:300;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-ext-300-normal.woff2)}
+@font-face{font-family:Geist;font-weight:300;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-300-normal.woff2)}
+@font-face{font-family:Geist;font-weight:400;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-ext-400-normal.woff2)}
+@font-face{font-family:Geist;font-weight:400;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-400-normal.woff2)}
+@font-face{font-family:Geist;font-weight:600;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-ext-600-normal.woff2)}
+@font-face{font-family:Geist;font-weight:600;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-600-normal.woff2)}
+*{margin:0;box-sizing:border-box}
+body{font-family:Geist,Arial,sans-serif;color:#F5F7FA;background:#050609}
+.mark{display:block}
+.glow{filter:drop-shadow(0 0 10px rgba(139,213,235,.55))}
+@font-face{font-family:Geist;font-weight:200;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-ext-200-normal.woff2)}
+@font-face{font-family:Geist;font-weight:200;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-200-normal.woff2)}
+@font-face{font-family:Geist;font-weight:500;src:url(file:///Users/lilianab/Desktop/HoloCAD/node_modules/@fontsource/geist/files/geist-latin-500-normal.woff2)}
+@font-face{font-family:Geist Mono;font-weight:400;src:url(file:///missing/geist-mono-latin-400-normal.woff2)}
+.mono{font-family:"Geist Mono",ui-monospace,Menlo,monospace}
