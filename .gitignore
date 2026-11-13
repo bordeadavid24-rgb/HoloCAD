@@ -150,3 +150,9 @@ vite.config.ts.timestamp-*
 
 # macOS
 .DS_Store
+
+# Local release packages and browser reports
+releases/
+test-results/
+playwright-report/
+.vercel/

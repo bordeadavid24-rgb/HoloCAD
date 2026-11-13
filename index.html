@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#08090d" />
+    <meta name="referrer" content="no-referrer" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
@@ -20,8 +21,25 @@
     <link
       rel="preload"
       as="image"
-      href="/video/holocad-intro-first-frame.jpg"
+      href="/video/holocad-intro-poster-1920.webp"
+      imagesrcset="/video/holocad-intro-poster-960.webp 960w, /video/holocad-intro-poster-1280.webp 1280w, /video/holocad-intro-poster-1920.webp 1920w"
+      imagesizes="(max-width: 767px) 150vw, 100vw"
+      media="(prefers-reduced-motion: no-preference)"
       fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/node_modules/@fontsource/geist/files/geist-latin-400-normal.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/node_modules/@fontsource/geist/files/geist-latin-600-normal.woff2"
+      crossorigin
     />
     <meta
       name="description"

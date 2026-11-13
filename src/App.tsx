@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
-import { Cube } from "@phosphor-icons/react/dist/csr/Cube";
 import { InstagramLogo } from "@phosphor-icons/react/dist/csr/InstagramLogo";
 import { X } from "@phosphor-icons/react/dist/csr/X";
 import CinematicIntro from "./components/CinematicIntro";
@@ -14,19 +13,31 @@ import SoftwarePreview from "./components/SoftwarePreview";
 
 function App() {
   const [menu, setMenu] = useState(false);
-  const dialog = useRef<HTMLDialogElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (!menu) return;
     const close = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenu(false);
+      if (event.key === "Escape") {
+        setMenu(false);
+        menuButton.current?.focus();
+      }
     };
+    const wide = window.matchMedia("(min-width: 768px)");
+    const resize = () => {
+      if (wide.matches) setMenu(false);
+    };
+    wide.addEventListener("change", resize);
     window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
+    return () => {
+      wide.removeEventListener("change", resize);
+      window.removeEventListener("keydown", close);
+    };
   }, [menu]);
   const nav = [
     ["Experiența", "#experience"],
     ["Tehnologia", "#technology"],
     ["Viziunea", "#vision"],
+    ["Echipa", "#team"],
   ];
   return (
     <>
@@ -52,6 +63,7 @@ function App() {
             Explorează HoloCAD <ArrowRight size={14} />
           </a>
           <button
+            ref={menuButton}
             className="mobile-menu-button"
             aria-label={menu ? "Închide meniul" : "Deschide meniul"}
             aria-expanded={menu}
@@ -87,19 +99,31 @@ function App() {
       </header>
       <main id="main">
         <CinematicIntro />
-        <section className="manifesto section container">
-          <Reveal>
-            <p className="manifesto-lead">
+        <section
+          className="manifesto section container"
+          aria-labelledby="idea-title"
+        >
+          <Reveal className="manifesto-layout">
+            <h2 id="idea-title" className="manifesto-lead">
               Unele idei merită
               <br />
               mai mult decât două dimensiuni.
-            </p>
-            <p>
-              Un motor. O structură. Un principiu științific.
-              <br />
-              HoloCAD își propune să transforme modelele complexe în experiențe
-              pe care le poți explora și înțelege.
-            </p>
+            </h2>
+            <div className="manifesto-copy">
+              <p>
+                Un motor. O structură. Un principiu științific. HoloCAD își
+                propune să transforme modelele complexe în experiențe pe care le
+                poți explora și înțelege.
+              </p>
+              <p>
+                Un afișaj bazat pe reflexie aduce modelul în fața ta. Aplicația
+                propusă îți permite să îl rotești, să separi componentele și să
+                descoperi rolul fiecărei piese.
+              </p>
+              <a className="text-link" href="#technology">
+                Cum funcționează <ArrowRight size={17} />
+              </a>
+            </div>
           </Reveal>
           <div className="project-context">
             <span>Un proiect pentru Samsung Solve for Tomorrow</span>
@@ -122,7 +146,6 @@ function App() {
               />
             </div>
             <div className="purpose-copy">
-              <span className="eyebrow">Pentru minți curioase</span>
               <h2>
                 Învățarea începe
                 <br />
@@ -138,6 +161,51 @@ function App() {
                 <span>Design</span>
               </div>
             </div>
+          </Reveal>
+        </section>
+        <section
+          id="team"
+          className="section team-section container"
+          aria-labelledby="team-title"
+        >
+          <Reveal className="team-layout">
+            <div className="team-copy">
+              <h2 id="team-title">
+                În spatele ideii,
+                <br />o echipă curioasă.
+              </h2>
+              <p>
+                HoloCAD este un proiect educațional al Liceului Internațional
+                PREMS, dezvoltat pentru Samsung Solve for Tomorrow.
+              </p>
+              <p>
+                Lucrăm la o experiență care face cunoștințele tridimensionale
+                mai accesibile și mai ușor de înțeles.
+              </p>
+              <a
+                className="text-link"
+                href="https://www.instagram.com/holocad26/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Urmărește proiectul <ArrowRight size={17} />
+              </a>
+            </div>
+            <figure className="team-photo">
+              <img
+                src="/images/holocad-team-1200.webp"
+                srcSet="/images/holocad-team-640.webp 640w, /images/holocad-team-1200.webp 1200w"
+                sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 55vw, 700px"
+                alt="Cei patru membri ai echipei HoloCAD, împreună la Liceul Internațional PREMS."
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                Echipa HoloCAD, Liceul Internațional PREMS.
+              </figcaption>
+            </figure>
           </Reveal>
         </section>
         <section id="vision" className="section vision-section container">
@@ -165,6 +233,40 @@ function App() {
             </div>
           </Reveal>
         </section>
+        <section
+          className="section faq-section container"
+          aria-labelledby="faq-title"
+        >
+          <h2 id="faq-title">Bine de știut.</h2>
+          <div className="faq-list">
+            <details>
+              <summary>Este o hologramă reală?</summary>
+              <p>
+                HoloCAD folosește principiul Pepper’s Ghost. Un ecran reflectă
+                imaginea pe suprafețe transparente și creează iluzia unui obiect
+                suspendat. Nu este o hologramă în spațiu liber.
+              </p>
+            </details>
+            <details>
+              <summary>Ce pot încerca pe această pagină?</summary>
+              <p>
+                Poți roti motorul demonstrativ, separa ansamblul și selecta o
+                piesă pentru a citi sau asculta explicația. Modelul este
+                ilustrativ; HoloCAD este încă în etapa de concept și
+                prototipare.
+              </p>
+            </details>
+            <details>
+              <summary>Cum sunt generate explicațiile?</summary>
+              <p>
+                Demonstrația de aici folosește explicații pregătite și
+                înregistrări vocale generate cu AI. Pentru produs explorăm un
+                asistent conectat la etichetele și contextul tehnic al
+                modelului. Asistența AI locală nu este încă validată.
+              </p>
+            </details>
+          </div>
+        </section>
         <section className="final-section container">
           <Reveal>
             <span>HoloCAD</span>
@@ -177,12 +279,9 @@ function App() {
               <a className="button button-light" href="#explore">
                 Explorează HoloCAD <ArrowRight size={16} />
               </a>
-              <button
-                className="button button-outline"
-                onClick={() => dialog.current?.showModal()}
-              >
-                Despre echipă
-              </button>
+              <a className="button button-outline" href="#team">
+                Cunoaște echipa
+              </a>
             </div>
           </Reveal>
         </section>
@@ -194,8 +293,8 @@ function App() {
           </a>
           <p>Un proiect educațional în dezvoltare.</p>
           <p>
-            Imaginile de prezentare și narațiunea sunt generate cu ajutorul
-            AI.
+            Vizualizările de produs și narațiunea folosesc AI. Fotografia
+            echipei este reală.
           </p>
         </div>
         <div>
@@ -219,44 +318,6 @@ function App() {
           </a>
         </div>
       </footer>
-      <dialog
-        ref={dialog}
-        className="team-dialog"
-        aria-labelledby="team-title"
-        onClick={(event) => {
-          if (event.target === event.currentTarget) dialog.current?.close();
-        }}
-      >
-        <div>
-          <button
-            autoFocus
-            className="icon-button dialog-close"
-            aria-label="Închide"
-            onClick={() => dialog.current?.close()}
-          >
-            <X size={22} />
-          </button>
-          <Cube size={40} weight="light" />
-          <h2 id="team-title">
-            Curiozitate.
-            <br />O idee. Un început.
-          </h2>
-          <p>
-            HoloCAD este un proiect educațional al Liceului Internațional PREMS,
-            dezvoltat pentru Samsung Solve for Tomorrow.
-          </p>
-          <p>
-            Lucrăm la o experiență care face cunoștințele tridimensionale mai
-            accesibile și mai ușor de înțeles.
-          </p>
-          <button
-            className="button button-light"
-            onClick={() => dialog.current?.close()}
-          >
-            Înapoi la HoloCAD
-          </button>
-        </div>
-      </dialog>
     </>
   );
 }

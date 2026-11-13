@@ -34,8 +34,9 @@ export default function HeroInteraction({
   const controller = useRef<ReturnType<typeof createHeroLens> | null>(null);
   const [mode, setMode] = useState<LensMode>("optics");
   const [activity, setActivity] = useState({ active: false, pinned: false });
-  const [fallback, setFallback] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [fallback, setFallback] = useState(true);
+  const request = useRef<((mode?: LensMode) => void) | null>(null);
+  const cancelPending = useRef<() => void>(() => {});
   const lastControl = useRef<HTMLButtonElement | null>(null);
   const current = layers.find((layer) => layer.id === mode)!;
   useEffect(() => {
@@ -44,18 +45,28 @@ export default function HeroInteraction({
     const host = surface?.closest<HTMLElement>(".film-stage");
     if (!surface || !video || !host) return;
     let disposed = false;
+    let loading = false;
+    let requested = false;
+    let pendingMode: LensMode | undefined;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const saveData = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean };
+      }
+    ).connection?.saveData;
     const fail = () => {
       controller.current?.dispose();
       controller.current = null;
       setFallback(true);
-      setReady(true);
     };
     const load = async () => {
-      if (reduced.matches) {
+      if (disposed || loading || controller.current) return;
+      if (reduced.matches || saveData) {
         fail();
         return;
       }
+      if (video.readyState < 2) return;
+      loading = true;
       try {
         const { createHeroLens } = await import("../three/hero-lens");
         if (disposed || reduced.matches) return;
@@ -66,16 +77,39 @@ export default function HeroInteraction({
           (active, pinned) => setActivity({ active, pinned }),
         );
         setFallback(false);
-        setReady(true);
+        if (pendingMode) controller.current.setMode(pendingMode);
       } catch {
         if (!disposed) fail();
+      } finally {
+        loading = false;
       }
+    };
+    const activate = (id?: LensMode) => {
+      requested = true;
+      pendingMode = id;
+      video.dispatchEvent(new Event("holocad:activate"));
+      void load();
+    };
+    request.current = activate;
+    cancelPending.current = () => {
+      pendingMode = undefined;
+    };
+    const intent = (event: PointerEvent) => {
+      if (event.pointerType !== "mouse" || requested || reduced.matches) return;
+      if ((event.target as Element).closest("a, button")) return;
+      const bounds = host.getBoundingClientRect();
+      const y = (event.clientY - bounds.top) / bounds.height;
+      const x = (event.clientX - bounds.left) / bounds.width;
+      if (y > 0.35 && y < 0.85 && x > 0.1 && x < 0.9) activate();
+    };
+    const videoReady = () => {
+      if (requested) void load();
     };
     const change = () => {
       controller.current?.dispose();
       controller.current = null;
       setActivity({ active: false, pinned: false });
-      void load();
+      if (requested) void load();
     };
     const contextLost = (event: Event) => {
       event.preventDefault();
@@ -83,15 +117,22 @@ export default function HeroInteraction({
     };
     const key = (event: KeyboardEvent) => {
       if (event.key === "Escape" && !controller.current) {
+        pendingMode = undefined;
         setActivity({ active: false, pinned: false });
+        lastControl.current?.focus({ preventScroll: true });
       }
     };
     reduced.addEventListener("change", change);
     window.addEventListener("keydown", key);
     surface.addEventListener("webglcontextlost", contextLost);
-    void load();
+    host.addEventListener("pointermove", intent, { passive: true });
+    video.addEventListener("loadeddata", videoReady);
     return () => {
       disposed = true;
+      request.current = null;
+      cancelPending.current = () => {};
+      host.removeEventListener("pointermove", intent);
+      video.removeEventListener("loadeddata", videoReady);
       reduced.removeEventListener("change", change);
       window.removeEventListener("keydown", key);
       surface.removeEventListener("webglcontextlost", contextLost);
@@ -103,8 +144,10 @@ export default function HeroInteraction({
     setMode(id);
     if (fallback) setActivity({ active: true, pinned: true });
     else controller.current?.setMode(id);
+    request.current?.(id);
   };
   const close = () => {
+    cancelPending.current();
     controller.current?.close();
     setActivity({ active: false, pinned: false });
     lastControl.current?.focus({ preventScroll: true });
@@ -135,7 +178,6 @@ export default function HeroInteraction({
             <button
               key={layer.id}
               type="button"
-              disabled={!ready}
               aria-pressed={activity.pinned && mode === layer.id}
               aria-controls="hero-layer-detail"
               onClick={(event) => {

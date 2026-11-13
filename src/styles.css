@@ -34,6 +34,8 @@ select:focus-visible {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  scrollbar-color: #46505e var(--surface);
+  -webkit-text-size-adjust: 100%;
 }
 body {
   margin: 0;
@@ -55,6 +57,8 @@ h4 {
 button {
   font: inherit;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 button,
 a,
@@ -90,9 +94,10 @@ input:focus-visible {
   padding-block: 130px;
 }
 h2 {
-  font-size: clamp(40px, 5vw, 70px);
-  line-height: 1.07;
-  letter-spacing: -0.055em;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 h3 {
   letter-spacing: -0.04em;
@@ -128,13 +133,13 @@ button:active {
   border-color: #68727f;
 }
 .button-small {
-  min-height: 38px;
+  min-height: 44px;
   padding-inline: 18px;
   font-size: 11px;
 }
 .icon-button {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   background: transparent;
@@ -149,7 +154,8 @@ button:active {
   border: 0;
   background: transparent;
   color: #c2ccd9;
-  font-size: 11px;
+  font-size: 12px;
+  min-height: 44px;
   padding: 10px;
   transition: transform 160ms var(--ease-out);
 }
@@ -193,7 +199,7 @@ button:active {
 .wordmark {
   font-size: 23px;
   letter-spacing: -1.2px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .wordmark span {
   font-weight: 600;
@@ -205,7 +211,10 @@ button:active {
   margin-right: 30px;
 }
 .desktop-links a {
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
   color: #c7cfd9;
 }
 .mobile-menu-button,
@@ -216,6 +225,13 @@ button:active {
   height: 350dvh;
   position: relative;
 }
+.film-start-marker {
+  position: absolute;
+  top: 1px;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
 .film-stage {
   position: sticky;
   top: 64px;
@@ -225,7 +241,8 @@ button:active {
   isolation: isolate;
   background: #050609;
 }
-.intro-film {
+.intro-film,
+.intro-poster {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -234,6 +251,39 @@ button:active {
   object-position: 50% 62%;
   z-index: -2;
   opacity: 1;
+}
+.intro-film {
+  opacity: 0;
+}
+.cinematic-intro[data-film-ready="true"] .intro-film {
+  opacity: 1;
+}
+.cinematic-intro[data-film-ready="true"] .intro-poster {
+  visibility: hidden;
+}
+.cinematic-intro[data-static="true"] {
+  height: auto;
+}
+.cinematic-intro[data-static="true"] .film-stage {
+  position: relative;
+  top: 0;
+  height: auto;
+  padding-bottom: 260px;
+}
+.cinematic-intro[data-static="true"] .film-chapter {
+  position: relative;
+  opacity: 1;
+  transform: none;
+  padding: 50px 24px;
+  align-items: center;
+  text-align: center;
+}
+.cinematic-intro[data-static="true"] .film-chapter-first {
+  padding-bottom: 400px;
+}
+.cinematic-intro[data-static="true"] .intro-poster {
+  height: 650px;
+  visibility: visible;
 }
 .film-vignette {
   position: absolute;
@@ -256,24 +306,6 @@ button:active {
     );
   pointer-events: none;
 }
-.intro-keyvisual {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 23%;
-  width: auto;
-  max-width: none;
-  height: 77%;
-  object-fit: contain;
-  object-position: 50% 100%;
-  transform: translateX(-50%);
-  mask-image:
-    linear-gradient(to right, transparent, #000 8%, #000 92%, transparent),
-    linear-gradient(to bottom, transparent, #000 12%, #000 98%, transparent);
-  mask-composite: intersect;
-  z-index: -2;
-  pointer-events: none;
-}
 .film-chapter {
   position: absolute;
   inset: 0;
@@ -286,9 +318,35 @@ button:active {
   will-change: transform, opacity;
 }
 .film-chapter h1 {
-  font-size: clamp(60px, 7.9vw, 116px);
+  font-size: clamp(56px, 7.5vw, 96px);
   line-height: 1.04;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
+}
+.film-direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #e0e6ed;
+  pointer-events: auto;
+}
+.film-direct-link svg,
+.text-link svg {
+  transition: transform 180ms var(--ease-out);
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #536170;
 }
 .film-brand {
   font-size: 20px;
@@ -365,36 +423,44 @@ button:active {
   color: #c0ccd9;
 }
 .manifesto {
-  text-align: center;
-  padding-block: 135px 72px;
+  text-align: left;
+  padding-block: 120px 64px;
+}
+.manifesto-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 7vw, 110px);
+  align-items: start;
 }
 .manifesto-lead {
-  font-size: clamp(34px, 4.5vw, 62px);
+  font-size: clamp(34px, 3.7vw, 52px);
   line-height: 1.15;
-  letter-spacing: -0.048em;
+  letter-spacing: -0.04em;
   font-weight: 500;
   color: var(--text);
 }
-.manifesto > .reveal > p:last-child {
-  font-size: 15px;
-  max-width: 660px;
-  margin: 32px auto 0;
+.manifesto-copy p {
+  font-size: 16px;
+  max-width: 52ch;
+}
+.manifesto-copy p + p {
+  margin-top: 18px;
 }
 .project-context {
   display: flex;
   justify-content: space-between;
   gap: 25px;
-  font-size: 10px;
+  font-size: 12px;
   color: #abb5c3;
   padding-top: 25px;
-  margin-top: 90px;
+  margin-top: 60px;
   border-top: 1px solid var(--line);
 }
 .section-heading {
   margin-bottom: 55px;
 }
 .section-heading p {
-  font-size: 14px;
+  font-size: 16px;
   max-width: 500px;
   margin-top: 25px;
 }
@@ -692,7 +758,7 @@ button:active {
   font-size: 45px;
 }
 .purpose-copy p {
-  font-size: 13px;
+  font-size: 16px;
   max-width: 340px;
   margin-top: 25px;
 }
@@ -703,26 +769,25 @@ button:active {
   margin-top: 35px;
 }
 .purpose-tags span {
-  font-size: 10px;
+  font-size: 12px;
   color: #c0d0e1;
   padding-bottom: 8px;
   border-bottom: 1px solid #486074;
 }
 .vision-section {
-  text-align: center;
+  text-align: left;
   padding-top: 90px;
 }
 .vision-section > .reveal > p {
-  font-size: 15px;
+  font-size: 16px;
   max-width: 590px;
-  margin: 30px auto 0;
+  margin: 30px 0 0;
 }
 .vision-progress {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin: 65px auto 0;
-  max-width: 850px;
+  margin: 55px 0 0;
 }
 .vision-progress > span {
   font-size: 13px;
@@ -735,12 +800,83 @@ button:active {
 }
 .vision-progress small {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: #a5b4c6;
   margin-top: 10px;
 }
 .vision-progress > span:first-child small {
   color: var(--accent);
+}
+.team-section {
+  border-block: 1px solid var(--line);
+}
+.team-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.25fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.team-copy h2 {
+  font-size: clamp(36px, 4vw, 54px);
+}
+.team-copy p {
+  font-size: 16px;
+  max-width: 46ch;
+  margin-top: 24px;
+}
+.team-copy p + p {
+  margin-top: 16px;
+}
+.team-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.team-photo figcaption {
+  padding-top: 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.faq-section {
+  display: grid;
+  grid-template-columns: 0.85fr 1.25fr;
+  align-items: start;
+  gap: clamp(40px, 6vw, 90px);
+  border-top: 1px solid var(--line);
+}
+.faq-section h2 {
+  font-size: clamp(34px, 3.6vw, 50px);
+}
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+.faq-list summary,
+.technical-details > summary {
+  cursor: pointer;
+  padding-block: 24px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 160ms ease;
+}
+.faq-list summary::marker,
+.technical-details > summary::marker {
+  color: #9da9b8;
+  font-size: 12px;
+}
+.faq-list details:first-child summary {
+  padding-top: 8px;
+}
+.faq-list p {
+  padding: 0 0 26px 18px;
+  font-size: 15px;
+  max-width: 65ch;
+}
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 .final-section {
   text-align: center;
@@ -785,67 +921,19 @@ button:active {
   gap: 7px;
   margin-top: 13px;
 }
-.team-dialog {
-  width: min(520px, calc(100% - 32px));
-  background: #101720;
-  color: #f5f7fa;
-  border: 1px solid #48586b;
-  border-radius: 24px;
-  padding: 0;
-  box-shadow: 0 30px 100px rgb(0 0 0 / 0.5);
-}
-.team-dialog::backdrop {
-  background: rgb(3 5 9 / 0.8);
-  backdrop-filter: blur(8px);
-}
-.team-dialog > div {
-  padding: 45px 40px;
-}
-.team-dialog .dialog-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-.team-dialog h2 {
-  font-size: 36px;
-  margin-top: 25px;
-}
-.team-dialog p {
-  font-size: 13px;
-  margin-top: 23px;
-}
-.team-dialog .button {
-  margin-top: 30px;
-}
-.team-dialog > div > svg {
-  color: var(--accent);
-}
 .reveal {
   opacity: 1;
   transform: none;
 }
-@keyframes soft-enter {
-  from {
-    opacity: 0.3;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 650ms var(--ease-out),
-      transform 650ms var(--ease-out);
-  }
-  .reveal.revealed {
-    opacity: 1;
-    transform: none;
-  }
-}
 @media (hover: hover) and (pointer: fine) {
+  .film-direct-link:hover svg,
+  .text-link:hover svg {
+    transform: translateX(3px);
+  }
+  .faq-list summary:hover,
+  .technical-details > summary:hover {
+    color: #b9c6d3;
+  }
   .button-light:hover {
     background: #d9e7f3;
   }
@@ -932,8 +1020,8 @@ button:active {
   .mobile-menu-button {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     border: 1px solid #455363;
     background: transparent;
@@ -964,26 +1052,21 @@ button:active {
     font-size: 13px;
   }
   .cinematic-intro {
-    height: 330dvh;
+    height: 330svh;
   }
   .film-stage {
-    height: calc(100dvh - 64px);
+    height: calc(100svh - 64px);
     min-height: 520px;
   }
-  .intro-film {
+  .intro-film,
+  .intro-poster {
     object-fit: contain;
     object-position: 50% 65%;
     width: 170%;
     left: -35%;
     height: 100%;
     transform: scale(0.9);
-  }
-  .intro-keyvisual {
-    left: 50%;
-    width: 135%;
-    top: 36%;
-    height: auto;
-    object-position: center;
+    max-width: none;
   }
   .film-vignette {
     background: linear-gradient(
@@ -1003,13 +1086,17 @@ button:active {
     margin-bottom: 17px;
   }
   .film-chapter h1 {
-    font-size: clamp(42px, 11vw, 66px);
-    white-space: nowrap;
-    letter-spacing: -0.06em;
+    font-size: clamp(34px, 10.2vw, 66px);
+    letter-spacing: -0.04em;
   }
   .film-chapter p {
     font-size: 13px;
     margin-top: 17px;
+    max-width: 34ch;
+  }
+  .film-direct-link {
+    font-size: 12px;
+    margin-top: 6px;
   }
   .film-chapter-second,
   .film-chapter-third {
@@ -1050,16 +1137,21 @@ button:active {
   .manifesto {
     padding-block: 90px 45px;
   }
+  .manifesto-layout,
+  .team-layout,
+  .faq-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
   .manifesto-lead {
     font-size: 31px;
     line-height: 1.2;
   }
-  .manifesto > .reveal > p:last-child {
-    font-size: 12px;
-    margin-top: 24px;
+  .manifesto-copy p {
+    font-size: 16px;
   }
   .project-context {
-    font-size: 9px;
+    font-size: 11px;
     flex-direction: column;
     gap: 7px;
     margin-top: 50px;
@@ -1072,7 +1164,7 @@ button:active {
     font-size: 38px;
   }
   .section-heading p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 22px;
   }
   .eyebrow {
@@ -1205,7 +1297,7 @@ button:active {
     font-size: 35px;
   }
   .purpose-copy p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 22px;
   }
   .purpose-tags {
@@ -1219,7 +1311,7 @@ button:active {
     padding-top: 45px;
   }
   .vision-section > .reveal > p {
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 26px;
   }
   .vision-progress {
@@ -1264,7 +1356,7 @@ button:active {
     padding-block: 35px;
   }
   .site-footer p {
-    font-size: 9px;
+    font-size: 11px;
   }
   .site-footer > div:last-child {
     grid-column: span 2;
@@ -1279,14 +1371,17 @@ button:active {
     margin-top: 0;
   }
   .site-footer a:not(.wordmark) {
-    font-size: 9px;
+    font-size: 11px;
     margin-top: 0;
   }
-  .team-dialog > div {
-    padding: 38px 26px;
+  .team-copy p {
+    font-size: 15px;
   }
-  .team-dialog h2 {
-    font-size: 32px;
+  .team-photo img {
+    border-radius: 18px;
+  }
+  .faq-list summary {
+    font-size: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1313,17 +1408,14 @@ button:active {
     min-height: 700px;
     padding-bottom: 70px;
   }
-  .intro-film,
-  .intro-keyvisual {
+  .intro-poster {
     height: 650px;
     top: 0;
     opacity: 1 !important;
+    visibility: visible !important;
   }
   .intro-film {
     display: none;
-  }
-  .intro-keyvisual {
-    display: block;
   }
   .film-chapter {
     position: relative;
@@ -1354,10 +1446,6 @@ button:active {
 }
 @media (prefers-reduced-transparency: reduce) {
   .site-header {
-    background: #050609;
-    backdrop-filter: none;
-  }
-  .team-dialog::backdrop {
     background: #050609;
     backdrop-filter: none;
   }

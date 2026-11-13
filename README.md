@@ -2,7 +2,13 @@
 
 A Romanian cinematic presentation for HoloCAD, developed for Samsung Solve for Tomorrow at Liceul Internațional PREMS.
 
+Live site: [holocad26.pages.dev](https://holocad26.pages.dev), published on Cloudflare Pages on November 12, 2026. The November 13 playback update passed the live security/media checks and full browser regression suite.
+
+Project handoff: start with [AGENTS.md](AGENTS.md), [confirmed context and team decisions](docs/PROJECT-CONTEXT.md), and [current tasks](docs/PROJECT-TODO.md). Current focus is the website launch and frequent social videos; the physical prototype is conditional on reaching the further competition phase. David owns software; Petre and Stefan own content; Tulica is the professor/coordinator. See the [social-video plan](docs/social-content-plan.md) for the draft backlog.
+
 ## Run locally
+
+Use Node 24 (see `.nvmrc`).
 
 ```sh
 npm install
@@ -11,9 +17,17 @@ npm run dev
 
 Vite serves the page at http://localhost:5173. Run `npm run build` for a production bundle and `npm run preview` to inspect it.
 
+For the complete release check, run `npm run verify:release`; it manages its temporary preview automatically. `npm run package:release` verifies and creates a static upload ZIP/checksum under the ignored `releases/` directory. Once the public origin is known, set `HOLOCAD_SITE_URL` in the shell/build environment so the build emits matching canonical, social and sitemap metadata. `npm run verify:live -- https://actual-host` checks the deployed response headers and essential assets.
+
+The [release runbook](docs/release-runbook.md) covers publishing, source/CI ownership and rollback. The [complete project task list](docs/PROJECT-TODO.md) separates completed website work from the team, physical prototype, application and competition tasks. The [prototype plan](docs/prototype-plan.md) supplies hardware and classroom validation procedures.
+
+The public origin is configured in `site.config.json`; `HOLOCAD_SITE_URL` can override it for another domain. This public setting contains no account credentials.
+
 ## Implemented experience
 
-The introduction opens on the exact first frame of the 16-second technical animation, which responds directly to scrolling from the beginning without a delayed fade-in. The scroll playhead controls the video and three Romanian messages. The primary film is rendered natively at 3840 × 2400, with a 1920 × 1200 mobile version, lower compression, improved studio materials, and clearer acrylic. Reduced motion keeps the photorealistic product concept and all messages without the extended scroll sequence.
+The landing page is prerendered at build time, so the introduction, explanations, team and FAQ are readable before JavaScript runs. React hydrates that HTML. The small stylesheet is inlined, and fonts are self-hosted.
+
+The introduction opens on a responsive WebP of the exact first frame of the 16-second technical animation. Scrolling loads GSAP and the film on demand: 1920 × 1200 on desktop and 960 × 600 on mobile, with frequent keyframes for seeking. The original 4K masters remain in `public/` for regeneration and are excluded from release uploads. Reduced motion keeps the photorealistic product concept and all messages without the extended scroll sequence. Data Saver keeps the still image and readable explanations without requesting the movie.
 
 Move the cursor over the prototype to reveal only the components under your path. Soft, irregular strokes linger for roughly two seconds before fading; there is no visible circle, rim, magnification, or spotlight background. Unbrushed areas retain the original product film. Optică / Hardware / Inteligență pin a local view of the glass, illustrative controller board, or contextual AI signal flow; Escape or the close button returns to the film. Touch and keyboard users can use the same controls. Raspberry Pi is labelled as an exploratory option. This is a concept visualization, not an implemented hardware configuration or live AI inference. Reduced motion and WebGL failure keep the explanations without distortion.
 
@@ -29,13 +43,17 @@ All product capabilities are described as planned or exploratory. The display us
 
 Reduced motion disables automatic mechanism motion and spatial transitions. Interactive scenes pause outside the viewport and when the browser tab is hidden, handle WebGL failure, and dispose of their resources on unmount.
 
-Lower scenes initialize near the viewport. The hero uses video decoding rather than live WebGL, reducing the rendering needed during the introduction.
+Lower scenes initialize near the viewport. The hero glass effect initializes only after pointer interaction or an explicit layer selection. Neither Three.js, GSAP nor movies are requested on arrival. Ordinary sections stay visible without repeated reveal animations. Mobile keeps vertical scrolling and pinch zoom available over the engine; the native selector uses 16px text on touch devices.
+
+The team photograph appears in a dedicated section, with 640px and 1200px WebP variants, lazy loading, explicit dimensions and no EXIF/XMP metadata. The technical implementation plan is available through a native disclosure, and the FAQ explains the optical principle, demo limitations and planned AI assistance.
 
 ## Verification
 
-TypeScript and the production build pass. `node --experimental-strip-types scripts/verify-engine.mjs` checks the linkage, full piston stroke, 15 selectable groups, expanded separation, isolation, and recomposition. Browser review includes component selection and narrated-film playback. Physical-phone presentation testing is still recommended.
+`npm run build` checks TypeScript, builds the assets, prerenders the page, generates static-host security headers and excludes unused source media from `dist/`. `npm run verify:landing` runs the production browser checks against `http://127.0.0.1:4177`; start `npm run preview -- --port 4177` first. Override the URL with `HOLOCAD_TEST_URL` when needed. Checks cover deferred downloads, actual security response headers, hydration/CSP errors, film seeking, glass controls, component selection, narrated video, menus, disclosures, reduced motion, Data Saver, no-JavaScript content and layouts from 320px to desktop. Screenshots are saved under `/private/tmp/holocad-release-qa`.
 
-The first updated Lighthouse desktop/mobile audit scored 99/90 for performance and 100 for accessibility, best practices, and SEO. Mobile largest contentful paint was 3.2s, total blocking time 0ms, and cumulative layout shift 0. These are local lab measurements, not field results, and supersede the shorter intro's earlier scores.
+The existing geometry checks also pass: `node --experimental-strip-types scripts/verify-engine.mjs`, `node --experimental-strip-types scripts/verify-hero.mjs` and `node scripts/verify-reveal-trail.mjs`. Physical-phone touch and browser-chrome behavior still need a real-device check.
+
+The November 10, 2026 release audit scores 100 desktop / 92 mobile for performance, and 100 for accessibility, best practices and SEO on both. The same-session baseline was 97 desktop / 43 mobile. Mobile largest contentful paint falls from 6.5s to 2.6s, total blocking time from 2,070ms to 170ms, and initial transfer from 6,087 KiB to 204 KiB. CLS remains zero. An intermediate optimized run scored 94 mobile with 2.4s LCP; lab scores vary. See [release review](docs/release-review.md) for the measured limits and hosting notes.
 
 Initial WebGL shader preparation can still take time on slower devices. Live scenes are loaded near the viewport; the introduction itself is pre-rendered.
 
@@ -65,6 +83,14 @@ Use `--only` to avoid regenerating unrelated clips. Hardware generation also exp
 
 ## Design and assets
 
-Design direction: cinematic Samsung-style hardware storytelling with Emil Kowalski's design engineering guidance and design-taste-frontend. DESIGN_VARIANCE: 7, MOTION_INTENSITY: 9, VISUAL_DENSITY: 2. Rounded content surfaces use 18-24px radii; interactive buttons use pills. The supplied dark product direction takes precedence over the taste skill's dual-theme default.
+Design direction: cinematic hardware storytelling refined with Emil Kowalski, design-taste-frontend and Impeccable. The local MINA-TLC project informed readable editorial columns, human photography and content hierarchy, while HoloCAD retains its dark palette, Geist typography, product film and interactive engine. DESIGN_VARIANCE: 6, MOTION_INTENSITY: 7, VISUAL_DENSITY: 3. Content surfaces use 18-24px radii; interactive buttons use pills. The existing dark brand direction takes precedence over the taste skill's dual-theme default.
+
+## Release security
+
+Deploy only `dist/` over HTTPS. The page uses same-origin assets and local recordings, with no login, form endpoint, analytics or live AI API requests. Secret narration credentials remain outside the browser bundle. Local development and preview bind to `127.0.0.1` by default.
+
+`security-headers.json` is the shared policy for production preview and the generated Netlify/Cloudflare Pages `_headers` file. `vercel.json` supplies matching Vercel headers; the build verifies they agree. Policies include a same-origin CSP, denied framing and embedding, disabled sensitive browser permissions, no referrer, MIME sniffing protection and HSTS. Inline styles are allowed for the stylesheet and existing animation styles; inline scripts and eval are not allowed. The dependency audit is clean after patching `fast-uri` to 3.1.9.
+
+For another host, apply the same response headers there. Verify the actual HTTPS deployment headers after publishing; local checks do not establish the security of an unselected production host.
 
 Current videos are in `public/video/`; Romanian ElevenLabs recordings are in `public/audio/`. The active photographic asset is `public/images/holocad-hero-realistic.webp` (quality 92, about 150 KB). Its original PNG and JPEG are retained. The image-generation tool returned 1586 × 992; the still is not claimed to be 4K. See `docs/hero-image-prompt.md` for the final prompt and provenance. Shared geometry and camera choreography are in `src/three/product.ts`; interactive controls are in `src/components/DeviceScene.tsx`. The older studio photograph and 1440 × 900 movie remain preserved.

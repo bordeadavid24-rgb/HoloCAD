@@ -4,7 +4,15 @@ The brief is interpreted as a premium hardware landing page for students and edu
 
 The requested `emil-design-eng` and `design-taste-frontend` skills guide the implementation. The animation skill informs brief press feedback, interruptible state transitions, reduced motion, pointer capture, and explanatory rather than constant decorative motion. React review guidance informs leaf scene components, lazy imports, mutable interaction refs, and effect cleanup.
 
-DESIGN_VARIANCE: 7. MOTION_INTENSITY: 9. VISUAL_DENSITY: 2 for the updated cinematic presentation.
+DESIGN_VARIANCE: 6. MOTION_INTENSITY: 7. VISUAL_DENSITY: 3 for the release refinement. The existing cinematic product sequence remains the authored motion moment; ordinary content stays visible and still.
+
+## Release refinement, November 2026
+
+The requested Emil Kowalski, design-taste-frontend and Impeccable skills guide a preservation pass. The local MINA-TLC project informs editorial columns, readable explanation and human photography. HoloCAD retains its own dark hardware identity, Geist type, neutral controls and optical blue inside the product imagery.
+
+A dedicated team section pairs the supplied photograph with existing project facts. Responsive WebPs contain no EXIF/XMP metadata and load below the fold. Main explanations use more readable type, varied alignment and native disclosures for technical depth. A short FAQ explains Pepper’s Ghost, the demonstrative model and prepared AI narration. Repeated section-entry animations and the team modal are removed.
+
+The release build prerenders the page and inlines its small stylesheet. Arrival shows a responsive WebP of the original film's first frame. Scrolling loads the animation runtime and a 1920px desktop or 960px mobile derivative; the glass effect loads on interaction. Reduced motion and Data Saver preserve static imagery and explanations. Original 4K masters remain as regeneration inputs and are omitted from release uploads. This release behavior supersedes the older cinematic implementation notes below. See `docs/release-review.md` for measured results, security policy and verification limits.
 
 The page follows the explicit dark brand direction. Silver-white typography replaces the pale blue text accent; blue is reserved for the optical and engine visuals. There is no decorative AI sparkle mark. The engine is a full-width interaction surface, with annotations beside selected parts rather than a question-button panel. Native CSS handles presentation states; Three.js handles spatial motion.
 

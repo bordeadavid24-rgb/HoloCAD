@@ -165,7 +165,7 @@ export function Exploration() {
   };
   return (
     <section id="explore" className="section explore-section container">
-      <Reveal className="section-heading centered">
+      <Reveal className="section-heading">
         <h2>
           Nu doar vezi.
           <br />
@@ -354,7 +354,7 @@ export function Technology() {
   };
   return (
     <section id="technology" className="section technology-section container">
-      <Reveal className="section-heading centered">
+      <Reveal className="section-heading">
         <h2>
           Un principiu simplu.
           <br />O perspectivă extraordinară.
@@ -366,7 +366,6 @@ export function Technology() {
           <video
             ref={video}
             src="/video/holocad-hardware.mp4"
-            poster="/video/holocad-hardware-poster.jpg"
             preload="none"
             playsInline
             muted={muted}
@@ -384,6 +383,17 @@ export function Technology() {
               src="/video/holocad-hardware.vtt"
             />
           </video>
+          {!started && (
+            <img
+              className="hardware-poster"
+              src="/video/holocad-hardware-poster.jpg"
+              alt=""
+              width="1440"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
           {!started && (
             <div className="hardware-film-intro">
               <span>HoloCAD, strat cu strat.</span>
@@ -498,115 +508,122 @@ export function TechnicalSection() {
           <p>Contextul modelului → explicație → componentă evidențiată</p>
         </div>
       </Reveal>
-      <Reveal className="engineering-columns">
-        <div className="engineering-column">
-          <h3>Hardware</h3>
-          <dl>
-            <div>
-              <dt>Structură optică</dt>
-              <dd>
-                Fețe transparente reflectante, cu materialul și unghiurile
-                validate prin teste de vizibilitate.
-              </dd>
-            </div>
-            <div>
-              <dt>Sursă de imagine</dt>
-              <dd>
-                Un afișaj orientat spre suprafețele optice. Dimensiunea și
-                luminozitatea vor fi alese în prototipare.
-              </dd>
-            </div>
-            <div>
-              <dt>Carcasă + audio</dt>
-              <dd>
-                Carcasă realizabilă prin fabricație digitală, difuzor și
-                amplificare pentru explicațiile vocale.
-              </dd>
-            </div>
-            <div>
-              <dt>Conectare</dt>
-              <dd>
-                Laptopul furnizează randarea. Prima variantă este prin cablu;
-                alimentarea și interfața depind de afișajul ales.
-              </dd>
-            </div>
-          </dl>
-        </div>
-        <div className="engineering-column">
-          <h3>Software</h3>
-          <dl>
-            <div>
-              <dt>Tauri · React · TypeScript</dt>
-              <dd>
-                Aplicația desktop: bibliotecă de modele, comenzi de explorare și
-                controlul dispozitivului.
-              </dd>
-            </div>
-            <div>
-              <dt>Three.js</dt>
-              <dd>
-                Scenă 3D locală, camere sincronizate, orientare calibrată și
-                pregătirea imaginilor reflectate.
-              </dd>
-            </div>
-            <div>
-              <dt>Python · Ollama</dt>
-              <dd>
-                Direcție explorată pentru asistență locală, folosind etichete,
-                metadate și referințe tehnice. AI-ul offline nu este încă
-                validat.
-              </dd>
-            </div>
-            <div>
-              <dt>Identificarea componentelor</dt>
-              <dd>
-                Evidențierea și descompunerea necesită piese distincte în model.
-                Geometria singură nu oferă suficiente informații pentru
-                explicații sigure.
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </Reveal>
-      <Reveal className="build-sequence">
-        <h3>Cum îl vom construi.</h3>
-        <ol>
-          <li>
-            <span>01</span>
-            <div>
-              <h4>Import și explorare</h4>
-              <p>Un viewer stabil, cu manipulare și identificarea pieselor.</p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <h4>Optică și calibrare</h4>
-              <p>
-                Construirea structurii și alinierea camerelor virtuale cu
-                reflexiile.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <h4>Explicații conectate</h4>
-              <p>Context tehnic, selecție, evidențiere și integrarea audio.</p>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <h4>Testare în clasă</h4>
-              <p>
-                Un caz educațional complet, urmat de feedback și comparație cu o
-                diagramă.
-              </p>
-            </div>
-          </li>
-        </ol>
-      </Reveal>
+      <details className="technical-details">
+        <summary>Componente, software și etapele de dezvoltare</summary>
+        <Reveal className="engineering-columns">
+          <div className="engineering-column">
+            <h3>Hardware</h3>
+            <dl>
+              <div>
+                <dt>Structură optică</dt>
+                <dd>
+                  Fețe transparente reflectante, cu materialul și unghiurile
+                  validate prin teste de vizibilitate.
+                </dd>
+              </div>
+              <div>
+                <dt>Sursă de imagine</dt>
+                <dd>
+                  Un afișaj orientat spre suprafețele optice. Dimensiunea și
+                  luminozitatea vor fi alese în prototipare.
+                </dd>
+              </div>
+              <div>
+                <dt>Carcasă + audio</dt>
+                <dd>
+                  Carcasă realizabilă prin fabricație digitală, difuzor și
+                  amplificare pentru explicațiile vocale.
+                </dd>
+              </div>
+              <div>
+                <dt>Conectare</dt>
+                <dd>
+                  Laptopul furnizează randarea. Prima variantă este prin cablu;
+                  alimentarea și interfața depind de afișajul ales.
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div className="engineering-column">
+            <h3>Software</h3>
+            <dl>
+              <div>
+                <dt>Tauri · React · TypeScript</dt>
+                <dd>
+                  Aplicația desktop: bibliotecă de modele, comenzi de explorare
+                  și controlul dispozitivului.
+                </dd>
+              </div>
+              <div>
+                <dt>Three.js</dt>
+                <dd>
+                  Scenă 3D locală, camere sincronizate, orientare calibrată și
+                  pregătirea imaginilor reflectate.
+                </dd>
+              </div>
+              <div>
+                <dt>Python · Ollama</dt>
+                <dd>
+                  Direcție explorată pentru asistență locală, folosind etichete,
+                  metadate și referințe tehnice. AI-ul offline nu este încă
+                  validat.
+                </dd>
+              </div>
+              <div>
+                <dt>Identificarea componentelor</dt>
+                <dd>
+                  Evidențierea și descompunerea necesită piese distincte în
+                  model. Geometria singură nu oferă suficiente informații pentru
+                  explicații sigure.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </Reveal>
+        <Reveal className="build-sequence">
+          <h3>Cum îl vom construi.</h3>
+          <ol>
+            <li>
+              <span>01</span>
+              <div>
+                <h4>Import și explorare</h4>
+                <p>
+                  Un viewer stabil, cu manipulare și identificarea pieselor.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <h4>Optică și calibrare</h4>
+                <p>
+                  Construirea structurii și alinierea camerelor virtuale cu
+                  reflexiile.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <h4>Explicații conectate</h4>
+                <p>
+                  Context tehnic, selecție, evidențiere și integrarea audio.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>04</span>
+              <div>
+                <h4>Testare în clasă</h4>
+                <p>
+                  Un caz educațional complet, urmat de feedback și comparație cu
+                  o diagramă.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </Reveal>
+      </details>
     </section>
   );
 }
