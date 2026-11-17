@@ -1,6 +1,6 @@
 # HoloCAD project context and decisions
 
-Last updated: November 13, 2026. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
+Last updated: November 17, 2026. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
 
 ## Confirmed by David on November 13
 
@@ -44,8 +44,8 @@ Last updated: November 13, 2026. Read this with `PROJECT-TODO.md`. This is the s
 - Hosting access uses David's intended account. Keep login/recovery information outside public source files.
 - November 13: the host-specific film correction was deployed; live security/media and desktop/mobile browser regression suites passed. Full details are in `release-review.md`.
 - The website is a concept presentation with an interactive demonstration and prepared narration. Physical display performance, live AI and classroom learning improvements are not verified by this website.
-- Intended repository: https://github.com/bordeadavid24-rgb/HoloCAD . Local `origin` now points to this URL. Migration is incomplete: the intended repository returned 404 when checked; GitHub's creation page rendered blank in Chrome, and no GitHub integration was connected. Repository creation, source push and CI success are not verified. Do not treat changing the local remote as completed migration.
-- Previous source remote: https://github.com/lalachmoon/HoloCAD.git . Preserve its history and do not delete or transfer someone else's repository.
+- Source repository: https://github.com/bordeadavid24-rgb/HoloCAD . Created November 17, 2026 on David's account, public, with an empty initial state so the existing history could be pushed. Local `main` matches `origin/main`. The push of `44d9e95` passed "Verify landing page": https://github.com/bordeadavid24-rgb/HoloCAD/actions/runs/44102153626 . Dependabot then opened four update pull requests from the existing configuration. They are not merged. Review each one before accepting it.
+- Previous source remote: https://github.com/lalachmoon/HoloCAD.git . It still points at `1ce1164` and was not deleted, transferred, or overwritten.
 - The local release ZIP/checksum and staged-source backup are under ignored `releases/`. Publish only checked site assets to hosting and checked source to GitHub.
 
 ## Domain investigation: November 13
@@ -68,7 +68,8 @@ At each relevant work session, read this context and the open tasks, check the l
 
 | Date | Evidence / action | Remaining follow-up |
 | --- | --- | --- |
-| November 13, 2026 | Public release and full live browser/security/media verification passed; complete local release check passed; dependency audit reported zero known vulnerabilities | Real phones and social preview deferred; GitHub migration in progress; retain the free `pages.dev` address |
+| November 17, 2026 | Created public `bordeadavid24-rgb/HoloCAD`, pushed existing history, and confirmed the main-branch verify workflow succeeded for `44d9e95`. `lalachmoon/HoloCAD` remains at `1ce1164` | Dependabot opened four unmerged update pull requests. Real phones and social preview remain deferred |
+| November 13, 2026 | Public release and full live browser/security/media verification passed; complete local release check passed; dependency audit reported zero known vulnerabilities | Real phones and social preview deferred; retain the free `pages.dev` address |
 | November 13, 2026 | David confirmed registration, roles and revised sequencing; registry lookups completed | Keep future assistants on the website/social focus; no hardware purchases or automated social publishing |
 
 ## Decision log
@@ -79,4 +80,5 @@ At each relevant work session, read this context and the open tasks, check the l
 - November 13: Deferred real-phone checks by request; AI/classroom work after launch and pitch planning for later discussion.
 - November 13: Chose `bordeadavid24-rgb` as the repository owner and recorded domain preferences and registry findings.
 - November 13, later clarification: domain/address must cost nothing. Retain `holocad26.pages.dev`; paid custom-domain research is no longer an active launch task.
-- November 13: Changed local Git `origin` to `bordeadavid24-rgb/HoloCAD`. Remote creation/upload remains blocked by the blank GitHub creation page and unconnected integration; the old repository was not deleted or changed.
+- November 13: Changed local Git `origin` to `bordeadavid24-rgb/HoloCAD`. Remote creation was still blocked at that time; the old repository was not deleted or changed.
+- November 17: Created public `bordeadavid24-rgb/HoloCAD` with David's stored GitHub credential, pushed the existing history, and confirmed CI on `main`. Left `lalachmoon/HoloCAD` unchanged.

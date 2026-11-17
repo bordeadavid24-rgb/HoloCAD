@@ -1,6 +1,6 @@
 # HoloCAD: complete remaining task list
 
-Updated November 13, 2026 after David's decisions. Start with `PROJECT-CONTEXT.md` for roles and phase gates. The current focus is the website launch and frequent social videos. David is already working on the app; this repository does not establish its implementation status. Build the physical prototype only if selected for the further competition phase. Check an item only when its evidence exists.
+Updated November 17, 2026 after the source push to David's GitHub account. Start with `PROJECT-CONTEXT.md` for roles and phase gates. The current focus is the website launch and frequent social videos. David is already working on the app; this repository does not establish its implementation status. Build the physical prototype only if selected for the further competition phase. Check an item only when its evidence exists.
 
 ## Current priorities and owners
 
@@ -25,7 +25,7 @@ Updated November 13, 2026 after David's decisions. Start with `PROJECT-CONTEXT.m
 - [x] Patch the known dependency issue; current audit reports zero known vulnerabilities.
 - [x] Add a build/artifact check that compares the output against local secrets without printing their values.
 - [x] Add one-command release verification, browser regression coverage and an upload-package generator.
-- [x] Add GitHub CI and dependency-update configuration locally. These become active only after the files reach GitHub.
+- [x] Add GitHub CI and dependency-update configuration. Both are active on `bordeadavid24-rgb/HoloCAD` as of November 17. The main-branch verify workflow passed. Dependabot opened update pull requests that still need review.
 - [x] Prepare the prototype and classroom validation plan in `prototype-plan.md`.
 - [x] Publish the checked static release on Cloudflare Pages at [holocad26.pages.dev](https://holocad26.pages.dev).
 - [x] Verify the live site's HTTPS response, required security headers, media, immutable caching, canonical URL and sitemap.
@@ -52,13 +52,13 @@ Registration is user-confirmed; advancing to the further phase has not been conf
 - [x] Remove paid custom-domain selection, purchase and connection from current launch tasks. Earlier registry research remains historical context only; availability is not zero-cost registration.
 - [x] David chose `bordeadavid24-rgb` as the GitHub repository owner.
 - [x] Point local Git `origin` at `https://github.com/bordeadavid24-rgb/HoloCAD.git`.
-- [ ] Complete migration to `bordeadavid24-rgb/HoloCAD`, verify the destination and preserve history. Leave the old `lalachmoon` repository intact.
-- [ ] Upload/push the checked source to the agreed repository and confirm CI runs successfully. Do not upload `.env.local`, `.git`, local credentials, `node_modules` or release manifests containing local paths.
+- [x] Complete migration to `bordeadavid24-rgb/HoloCAD`, verify the destination and preserve history. Leave the old `lalachmoon` repository intact. Verified November 17: https://github.com/bordeadavid24-rgb/HoloCAD is public, and https://github.com/lalachmoon/HoloCAD remains at `1ce1164`.
+- [x] Upload/push the checked source to the agreed repository and confirm CI runs successfully. Do not upload `.env.local`, `.git`, local credentials, `node_modules` or release manifests containing local paths. Push of `44d9e95` succeeded, and https://github.com/bordeadavid24-rgb/HoloCAD/actions/runs/44102153626 passed. Tracked files include `.env.example` only, with no secret values found.
 - [ ] Keep the remote source and deployed release in sync. The CI configuration verifies changes; it does not automatically publish the site or grant hosting access.
 - [ ] Keep a previous verified ZIP and checksum for rollback. Save the hosting project URL and account recovery information privately.
 - [ ] Use individual accounts and two-factor authentication for GitHub and hosting; give teammates only the access they need. Do not share passwords or place API tokens in public files.
 
-The current verified upload is `releases/holocad-site.zip`; a local binary patch of the prepared source changes is saved at `releases/holocad-source-changes.patch`. Both are local handoff artifacts. The source patch is not a replacement for pushing the source and confirming CI in the agreed repository. Current migration blocker: GitHub creation page rendered blank in Chrome; no GitHub integration connection was confirmed. Repository creation and source push remain unverified.
+The current verified upload is `releases/holocad-site.zip`; a local binary patch of the prepared source changes is saved at `releases/holocad-source-changes.patch`. Both stay local and ignored. The source itself is now on https://github.com/bordeadavid24-rgb/HoloCAD . Dependabot opened four pull requests after the push. They are not merged. The checkout, GSAP, and three.js checks passed. The TypeScript 7 bump failed its check. Review those updates separately.
 
 ## Social videos: current priority
 
