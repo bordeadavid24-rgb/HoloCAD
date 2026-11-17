@@ -172,7 +172,7 @@ export default function HeroInteraction({
         <div
           className="hero-layer-switch"
           role="group"
-          aria-label="Explorează straturile prototipului"
+          aria-label="Explorează straturile conceptului"
         >
           {layers.map((layer) => (
             <button
@@ -190,7 +190,7 @@ export default function HeroInteraction({
           ))}
         </div>
         <span className="hero-pointer-hint">
-          Mișcă cursorul peste prototip. Clic pentru a fixa.
+          Mișcă cursorul peste concept. Clic pentru a fixa.
         </span>
       </div>
       <aside

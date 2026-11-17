@@ -517,15 +517,16 @@ export function TechnicalSection() {
               <div>
                 <dt>Structură optică</dt>
                 <dd>
-                  Fețe transparente reflectante, cu materialul și unghiurile
-                  validate prin teste de vizibilitate.
+                  Fețe transparente reflectante. Materialul și unghiurile se
+                  stabilesc după teste de vizibilitate, dacă proiectul ajunge
+                  la prototip.
                 </dd>
               </div>
               <div>
                 <dt>Sursă de imagine</dt>
                 <dd>
                   Un afișaj orientat spre suprafețele optice. Dimensiunea și
-                  luminozitatea vor fi alese în prototipare.
+                  luminozitatea se aleg odată cu prototipul.
                 </dd>
               </div>
               <div>

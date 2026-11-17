@@ -29,7 +29,7 @@ The [Cloudflare direct-upload documentation](https://developers.cloudflare.com/p
 
 ## Source and CI
 
-David chose `bordeadavid24-rgb/HoloCAD` as the source of truth on November 13. Complete and verify the migration to that account, preserving history and leaving `lalachmoon/HoloCAD` intact. Consult `PROJECT-CONTEXT.md` for migration status before pushing; changing a local URL alone does not establish a successful source upload or a passing CI run. Do not share credentials.
+David chose `bordeadavid24-rgb/HoloCAD` as the source of truth. The repository was created and the existing history was pushed on November 17. `lalachmoon/HoloCAD` remains intact. Consult `PROJECT-CONTEXT.md` before pushing. Do not share credentials. A passing GitHub check does not publish the site. Cloudflare direct upload still requires the hosting account.
 
 The prepared workflow runs on pull requests, pushes to main and manual dispatch. It uses read-only repository permissions and does not persist checkout credentials. It performs a dependency audit and the same release verification. It is not a completed GitHub run until the files are uploaded/pushed and the actual run succeeds.
 

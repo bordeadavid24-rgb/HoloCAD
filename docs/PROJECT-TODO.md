@@ -1,6 +1,6 @@
 # HoloCAD: complete remaining task list
 
-Updated November 17, 2026 after the source push to David's GitHub account. Start with `PROJECT-CONTEXT.md` for roles and phase gates. The current focus is the website launch and frequent social videos. David is already working on the app; this repository does not establish its implementation status. Build the physical prototype only if selected for the further competition phase. Check an item only when its evidence exists.
+Updated November 17, 2026 after the competition-rules check and the claim corrections. Start with `PROJECT-CONTEXT.md` for roles and phase gates. The current focus is the website launch and frequent social videos. David is already working on the app; this repository does not establish its implementation status. Build the physical prototype only if selected for the further competition phase. Check an item only when its evidence exists.
 
 ## Current priorities and owners
 
@@ -34,12 +34,12 @@ Updated November 17, 2026 after the source push to David's GitHub account. Start
 ## Competition and team: confirmed and remaining
 
 - [x] HoloCAD is registered for Samsung Solve for Tomorrow, confirmed by David on November 13. No further registration action is currently requested.
-- [ ] Keep the confirmation email/submission identifier privately and follow the organizer's next-stage notices.
-- [ ] Confirm participant eligibility, team membership and coordinating teacher against the current rules. Obtain any permissions the organizer requires.
+- [ ] Keep the confirmation email/submission identifier privately and follow the organizer's next-stage notices. The public page shows registration through November 17, 2026, while the linked rules PDF still prints November 3. David confirmed registration on November 13. The email was not opened or copied into this repository. See `competition-status.md`.
+- [ ] Confirm participant eligibility, team membership and coordinating teacher against the current rules. Obtain any permissions the organizer requires. Public criteria and the known four-person group are recorded in `competition-status.md`. Ages, enrollment, and the teacher named on the form still need the team's private confirmation. Parental and image consent are requested only if the team is selected.
 - [x] Record responsibilities: David/software; Petre and Stefan/content; probably all three/future hardware; Tulica/professor. See `PROJECT-CONTEXT.md`.
-- [ ] Agree the next website/social checkpoint, who operates the social accounts and who approves each publication.
-- [ ] Confirm the school/project wording and permission to publish the team photograph and institutional references. Keep approvals privately; do not put personal forms in this repository.
-- [ ] Check the permitted use of Samsung's name and competition branding. Keep prototype claims consistent with what has actually been built.
+- [ ] Agree the next website/social checkpoint, who operates the social accounts and who approves each publication. Official platforms and hashtags are recorded for that decision. Choosing the operator is the start of Petre and Stefan's content work.
+- [ ] Confirm the school/project wording and permission to publish the team photograph and institutional references. Keep approvals privately; do not put personal forms in this repository. The photograph is already on the public site. Written school permission was not inspected.
+- [x] Check the permitted use of Samsung's name and competition branding. Keep prototype claims consistent with what has actually been built. November 17: the rules allow the competition name and require three hashtags on social posts; they do not license the Samsung logo. Source copy no longer says the physical prototype is underway or that optical tests are already done. The live site still shows the previous sentences until the next Cloudflare upload.
 
 Registration is user-confirmed; advancing to the further phase has not been confirmed. Check the organizer's actual notices for later requirements. Do not make hardware work or purchases a current launch requirement.
 
@@ -47,16 +47,16 @@ Registration is user-confirmed; advancing to the further phase has not been conf
 
 - [x] Verify the published URL and HTTPS deployment, including the actual response headers and interactive demo, using the release runbook in `release-runbook.md`.
 - [ ] Later, by David's request: open the live site on a real iPhone/Safari and Android/Chrome. Test scrolling past the engine, horizontal rotation, selecting parts, voice mute, narrated film, menu, team image and landscape layout. Emulated checks have passed; real-phone checks remain open.
-- [ ] Send the live link in a private message to yourself and verify the social preview image/title. This requires a real crawler on the final domain.
+- [ ] Send the live link in a private message to yourself and verify the social preview image/title. This requires a real crawler on the final domain. November 17: an external crawler read the live card as title “HoloCAD | Modele CAD, în aer.”, the current description, and `https://holocad26.pages.dev/og-image.png` at 1200×630. The image uses the competition name and `#SFTRomania2026`, with no Samsung logo. A private-message unfurl was not sent. The corrected description is in source and is not on the live card yet.
 - [x] Record the latest domain decision: the website address must be free. Retain the existing `https://holocad26.pages.dev` address with HTTPS and matching production metadata.
 - [x] Remove paid custom-domain selection, purchase and connection from current launch tasks. Earlier registry research remains historical context only; availability is not zero-cost registration.
 - [x] David chose `bordeadavid24-rgb` as the GitHub repository owner.
 - [x] Point local Git `origin` at `https://github.com/bordeadavid24-rgb/HoloCAD.git`.
 - [x] Complete migration to `bordeadavid24-rgb/HoloCAD`, verify the destination and preserve history. Leave the old `lalachmoon` repository intact. Verified November 17: https://github.com/bordeadavid24-rgb/HoloCAD is public, and https://github.com/lalachmoon/HoloCAD remains at `1ce1164`.
 - [x] Upload/push the checked source to the agreed repository and confirm CI runs successfully. Do not upload `.env.local`, `.git`, local credentials, `node_modules` or release manifests containing local paths. Push of `44d9e95` succeeded, and https://github.com/bordeadavid24-rgb/HoloCAD/actions/runs/44102153626 passed. Tracked files include `.env.example` only, with no secret values found.
-- [ ] Keep the remote source and deployed release in sync. The CI configuration verifies changes; it does not automatically publish the site or grant hosting access.
-- [ ] Keep a previous verified ZIP and checksum for rollback. Save the hosting project URL and account recovery information privately.
-- [ ] Use individual accounts and two-factor authentication for GitHub and hosting; give teammates only the access they need. Do not share passwords or place API tokens in public files.
+- [ ] Keep the remote source and deployed release in sync. The CI configuration verifies changes; it does not automatically publish the site or grant hosting access. On November 17 the rollback ZIP checksum matched and the live host still served the November 13 release. Cloudflare was not authenticated in this session, so the claim corrections are not uploaded yet.
+- [ ] Keep a previous verified ZIP and checksum for rollback. Save the hosting project URL and account recovery information privately. November 17: `releases/holocad-site.zip` matched `releases/holocad-site.zip.sha256`. The public project is Cloudflare Pages `holocad26` at https://holocad26.pages.dev. Account recovery stays in David's hosting account and is not stored in this repository.
+- [ ] Use individual accounts and two-factor authentication for GitHub and hosting; give teammates only the access they need. Do not share passwords or place API tokens in public files. November 17: `bordeadavid24-rgb/HoloCAD` had one collaborator, `bordeadavid24-rgb`, with admin access, and no pending invitations. Two-factor authentication was not visible through the API and still needs to be confirmed in the GitHub and Cloudflare account settings.
 
 The current verified upload is `releases/holocad-site.zip`; a local binary patch of the prepared source changes is saved at `releases/holocad-source-changes.patch`. Both stay local and ignored. The source itself is now on https://github.com/bordeadavid24-rgb/HoloCAD . Dependabot opened four pull requests after the push. They are not merged. The checkout, GSAP, and three.js checks passed. The TypeScript 7 bump failed its check. Review those updates separately.
 

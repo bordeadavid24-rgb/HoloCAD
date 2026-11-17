@@ -1,6 +1,6 @@
 # HoloCAD project context and decisions
 
-Last updated: November 17, 2026. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
+Last updated: November 17, 2026, after the competition-rules check. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
 
 ## Confirmed by David on November 13
 
@@ -68,7 +68,8 @@ At each relevant work session, read this context and the open tasks, check the l
 
 | Date | Evidence / action | Remaining follow-up |
 | --- | --- | --- |
-| November 17, 2026 | Created public `bordeadavid24-rgb/HoloCAD`, pushed existing history, and confirmed the main-branch verify workflow succeeded for `44d9e95`. `lalachmoon/HoloCAD` remains at `1ce1164` | Dependabot opened four unmerged update pull requests. Real phones and social preview remain deferred |
+| November 17, 2026 | Read the public Solve for Tomorrow page and the linked rules PDF. Corrected source copy that treated the physical prototype or optical tests as current. Verified the rollback ZIP checksum, the single GitHub collaborator, and that Cloudflare login is not available in this session | Live site still serves the November 13 text until the next upload. Real phones, the private confirmation email, ages, and school photo permission remain open |
+| November 17, 2026 | Created public `bordeadavid24-rgb/HoloCAD`, pushed existing history, and confirmed the main-branch verify workflow succeeded for `44d9e95`. `lalachmoon/HoloCAD` remains at `1ce1164` | Dependabot opened four unmerged update pull requests |
 | November 13, 2026 | Public release and full live browser/security/media verification passed; complete local release check passed; dependency audit reported zero known vulnerabilities | Real phones and social preview deferred; retain the free `pages.dev` address |
 | November 13, 2026 | David confirmed registration, roles and revised sequencing; registry lookups completed | Keep future assistants on the website/social focus; no hardware purchases or automated social publishing |
 
@@ -82,3 +83,4 @@ At each relevant work session, read this context and the open tasks, check the l
 - November 13, later clarification: domain/address must cost nothing. Retain `holocad26.pages.dev`; paid custom-domain research is no longer an active launch task.
 - November 13: Changed local Git `origin` to `bordeadavid24-rgb/HoloCAD`. Remote creation was still blocked at that time; the old repository was not deleted or changed.
 - November 17: Created public `bordeadavid24-rgb/HoloCAD` with David's stored GitHub credential, pushed the existing history, and confirmed CI on `main`. Left `lalachmoon/HoloCAD` unchanged.
+- November 17: Compared the team and the website with the public Solve for Tomorrow rules. The competition name may be used; the Samsung logo may not. Prototype and classroom work stay behind selection. Details are in `competition-status.md`.

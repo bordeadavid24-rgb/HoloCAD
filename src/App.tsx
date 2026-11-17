@@ -252,8 +252,8 @@ function App() {
               <p>
                 Poți roti motorul demonstrativ, separa ansamblul și selecta o
                 piesă pentru a citi sau asculta explicația. Modelul este
-                ilustrativ; HoloCAD este încă în etapa de concept și
-                prototipare.
+                ilustrativ. HoloCAD este în etapa de concept. Prototipul fizic
+                începe doar dacă echipa este selectată mai departe.
               </p>
             </details>
             <details>
