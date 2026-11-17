@@ -2,6 +2,8 @@
 
 **Published November 12, 2026:** [https://holocad26.pages.dev](https://holocad26.pages.dev). Cloudflare confirmed successful deployment in the intended account. The live-host check passed for HTTPS, CSP/frame protection, permissions policy, MIME/referrer/HSTS headers, required media, immutable asset caching, canonical URL and sitemap. The sections below preserve the earlier local audit history.
 
+**Updated November 17, 2026:** the same project received the corrected concept copy. The live page no longer says the physical prototype is underway or that optical angles were already tested. `node scripts/verify-live.mjs https://holocad26.pages.dev` and `npm run verify:landing` against that URL passed. The November 13 package was kept locally for rollback.
+
 November 10, 2026. Local production build, Chrome / Lighthouse 13, default simulated mobile throttling and desktop preset. These are lab results, not field measurements or a guarantee on every device.
 
 | Metric | Before | After |
