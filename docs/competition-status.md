@@ -11,7 +11,7 @@ The page says dates it publishes are part of the competition terms. The PDF and 
 
 ## What the public rules allow now
 
-Eligibility, as printed: a student enrolled at a school in Romania, aged 16 to 19. A team may have 2 to 5 members and must include one coordinating teacher. The teacher submits the team entry and is the organizer's contact. The known group is David, Petre and Stefan, with Tulica as professor: four people, inside the printed maximum. Ages, school enrollment, and whether Tulica is the teacher named on the form were not checked against private documents.
+Eligibility, as printed: a student enrolled at a school in Romania, aged 16 to 19. A team may have 2 to 5 members and must include one coordinating teacher. The teacher submits the team entry and is the organizer's contact. On November 17 the user confirmed the entry: Bordea David, Oprea Petre Teodor and Cheslerean Stefan, all 16–19 and enrolled at the school, with Dr. Ing. Prof. Alexandru Constantin Tulica as the named coordinating teacher. That is four people, inside the printed maximum. The form and the school permission were not copied into this repository. The user also confirmed that the school has given permission for the team photograph and the school references.
 
 Participation is free. The four printed themes are education and diversity, environmental protection, social change through sport, and financial education, each through technology. Projects outside those themes can be accepted or refused at the organizer's discretion. HoloCAD is an education project. The theme selected on the form was not inspected.
 

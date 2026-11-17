@@ -1,6 +1,6 @@
 # HoloCAD project context and decisions
 
-Last updated: November 17, 2026, after the competition-rules check. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
+Last updated: November 17, 2026, after the eligibility confirmation. Read this with `PROJECT-TODO.md`. This is the shared handoff for any assistant working from this repository; other tools will need this repository or these files supplied to them.
 
 ## Confirmed by David on November 13
 
@@ -8,10 +8,10 @@ Last updated: November 17, 2026, after the competition-rules check. Read this wi
 - David is the software developer and is already working on the application. Application development continues after the website launch; this website checkout is not evidence of the app's current implementation status.
 - Petre and Stefan work on content. The specific social account operator, final publishing approver and per-post assignments remain to be agreed.
 - David, Petre and Stefan will probably work together on the holographic display/hardware. This is an intended shared responsibility, not a finalized hardware design.
-- Tulica is the team's professor/coordinator. Do not infer a full legal name or additional responsibilities without confirmation.
+- The coordinating teacher named on the form is Dr. Ing. Prof. Alexandru Constantin Tulica. The students named for the entry are Bordea David, Oprea Petre Teodor and Cheslerean Stefan. On November 17 the user confirmed that all three students are 16–19 and enrolled at the school, and that the school has given permission for the team photograph and the school references. The permission document and the registration confirmation were not copied into this repository.
 - Immediate priorities are the website and frequent social-media videos, aiming for nearly daily uploads.
 - Build the physical first prototype only if the team reaches the further competition phase. Do not purchase hardware or start fabrication now.
-- Real-phone checks are deliberately postponed until a later session. Keep them open; do not claim emulation replaces real Safari/touch testing.
+- Real-phone checks stay open until a physical iPhone/Safari and Android/Chrome have been used. An emulator result does not close that item. On November 17 the user asked to attempt the remaining device, account, and message checks from this machine.
 - AI evaluation and classroom testing are after-launch work. The later demonstration/pitch plan will be discussed separately.
 - David wants the source under GitHub user `bordeadavid24-rgb`, not `lalachmoon`.
 - Latest domain constraint: the address must be completely free. Use the existing `https://holocad26.pages.dev` address. The earlier preference for `holocad.com`, `.ro` or `.app` does not authorize registration fees. Do not buy a domain, enable a paid plan or propose introductory-free offers with paid renewals as a zero-cost solution.
@@ -21,11 +21,11 @@ Last updated: November 17, 2026, after the competition-rules check. Read this wi
 
 | Person | Confirmed responsibility | Practical handoff |
 | --- | --- | --- |
-| David | Software / application | Website and app implementation; domain/account decisions |
-| Petre | Content | Scripts, educational explanations and video preparation with Stefan |
-| Stefan | Content | Scripts, educational explanations and video preparation with Petre |
+| Bordea David | Software / application | Website and app implementation; domain/account decisions |
+| Oprea Petre Teodor | Content | Scripts, educational explanations and video preparation with Stefan |
+| Cheslerean Stefan | Content | Scripts, educational explanations and video preparation with Petre |
 | David + Petre + Stefan | Likely shared future hardware work | Plan and build only after the competition phase gate is met |
-| Tulica | Professor / coordinator | Coordinate school/competition questions and discuss educational review |
+| Dr. Ing. Prof. Alexandru Constantin Tulica | Professor / coordinator, named on the entry | Coordinate school/competition questions and discuss educational review |
 | Active AI assistant | Technical execution and project records within the user's instructions | Verify changes, keep tasks/evidence current, prepare content drafts; do not publish social posts or make purchases without specific authorization |
 
 ## Phases and gates
@@ -68,7 +68,8 @@ At each relevant work session, read this context and the open tasks, check the l
 
 | Date | Evidence / action | Remaining follow-up |
 | --- | --- | --- |
-| November 17, 2026 | Read the public Solve for Tomorrow page and the linked rules PDF. Corrected source copy that treated the physical prototype or optical tests as current. Verified the rollback ZIP checksum, the single GitHub collaborator, and that Cloudflare login is not available in this session | Live site still serves the November 13 text until the next upload. Real phones, the private confirmation email, ages, and school photo permission remain open |
+| November 17, 2026 | User confirmed the named entry: Bordea David, Oprea Petre Teodor and Cheslerean Stefan, each 16–19 and enrolled at the school, with Dr. Ing. Prof. Alexandru Constantin Tulica as the coordinating teacher, and confirmed school permission for the team photograph and school references. The form and permission document were not copied here. GitHub settings for `bordeadavid24-rgb` showed two-factor authentication is not enabled; it was left off. Cloudflare dashboard and both visible Google accounts were signed out, so the corrected site was not uploaded and the confirmation email was not opened. Chrome on Android emulator FlotaMea_API35 exercised the live site: film scroll, scrolling past the engine, part selection, voice mute, narrated film, team image, menu and landscape worked. The engine viewport stayed black, so visible rotation was not confirmed | Live upload, GitHub and Cloudflare two-factor authentication, the confirmation email, a real iPhone, a real Android phone, and a private-message unfurl remain open |
+| November 17, 2026 | Read the public Solve for Tomorrow page and the linked rules PDF. Corrected source copy that treated the physical prototype or optical tests as current. Verified the rollback ZIP checksum, the single GitHub collaborator, and that Cloudflare login is not available in this session | Live site still serves the November 13 text until the next upload |
 | November 17, 2026 | Created public `bordeadavid24-rgb/HoloCAD`, pushed existing history, and confirmed the main-branch verify workflow succeeded for `44d9e95`. `lalachmoon/HoloCAD` remains at `1ce1164` | Dependabot opened four unmerged update pull requests |
 | November 13, 2026 | Public release and full live browser/security/media verification passed; complete local release check passed; dependency audit reported zero known vulnerabilities | Real phones and social preview deferred; retain the free `pages.dev` address |
 | November 13, 2026 | David confirmed registration, roles and revised sequencing; registry lookups completed | Keep future assistants on the website/social focus; no hardware purchases or automated social publishing |
@@ -84,3 +85,4 @@ At each relevant work session, read this context and the open tasks, check the l
 - November 13: Changed local Git `origin` to `bordeadavid24-rgb/HoloCAD`. Remote creation was still blocked at that time; the old repository was not deleted or changed.
 - November 17: Created public `bordeadavid24-rgb/HoloCAD` with David's stored GitHub credential, pushed the existing history, and confirmed CI on `main`. Left `lalachmoon/HoloCAD` unchanged.
 - November 17: Compared the team and the website with the public Solve for Tomorrow rules. The competition name may be used; the Samsung logo may not. Prototype and classroom work stay behind selection. Details are in `competition-status.md`.
+- November 17: The user confirmed eligibility and school permission. The students on the entry are Bordea David, Oprea Petre Teodor and Cheslerean Stefan, all 16–19 and enrolled at the school. The coordinating teacher named on the form is Dr. Ing. Prof. Alexandru Constantin Tulica. The school has permitted the team photograph and the school references. These are user-reported facts. The registration form, the permission document, and the confirmation email were not opened or stored in this repository. Full names stay in this handoff; they were not added to the public marketing page.
