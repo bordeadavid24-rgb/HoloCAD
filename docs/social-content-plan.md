@@ -42,6 +42,18 @@ These are draft topics, not agreed publishing dates. Start after the launch deci
 - Use original, licensed or platform-authorized footage/music; retain any required credits.
 - Get permission before publishing identifiable people, voices, school material or private screens. Hide notifications and local credentials in captures.
 - Label renders and proposed capabilities clearly. Do not present website narration as live AI, or a reflection concept as proof of a built physical prototype.
-- Check captions, audio, the final link and the platform preview. Real-phone website checks remain deferred by David; do not mark them complete just because a clip looks correct.
+- Check captions, audio, the final link and the platform preview. On November 18 the user reported that the live site looks good on an iPhone and that no Android phone was available. That does not close the interaction checklist. Do not mark a phone check complete just because a clip looks correct.
 
-Unresolved: target platforms/handles, who posts, who gives final approval, first public launch date and the next batch's assigned clips. No automatic posting or paid campaign is configured.
+## Recommended first three, November 18
+
+These are drafts for Petre, Stefan, and David. They are not assigned, not approved, and not published. Film them from https://holocad26.pages.dev. Each caption must name Samsung Solve for Tomorrow and include all three hashtags. The brand frames show only `#SFTRomania2026`, so the caption has to carry the other two. Say the engine on the page is an illustrative concept. The physical prototype starts only if the team is selected. The voice on the page is prepared narration, not a live assistant. Do not use the Samsung logo.
+
+| Order | What to show | Caption draft |
+| --- | --- | --- |
+| 1 | 15–25 seconds, vertical. First frame: the live engine already on screen, with the words “Un motor, desfăcut în aer.” Say one sentence, then the address. | HoloCAD este un concept de afișaj educațional. Pe site rotești un model CAD și desfaci piesele, ca să vezi cum se leagă. Prototipul fizic începe doar dacă suntem selectați. https://holocad26.pages.dev Proiect al Liceului Internațional PREMS, înscris la Samsung Solve for Tomorrow. #SFTRomania2026 #SFTRO26 #SFT_ROMANIA_2026 |
+| 2 | 15–25 seconds, vertical. First frame: the piston already selected. Then select the connecting rod, the crankshaft, and reset. On-screen words: “Atingi pistonul. Rămâne doar pistonul.” | Motorul de pe site este o demonstrație. Atingi pistonul, biela sau arborele cotit și vezi piesa separat. Așa vrem să facem o schemă plată mai ușor de înțeles. https://holocad26.pages.dev Samsung Solve for Tomorrow. #SFTRomania2026 #SFTRO26 #SFT_ROMANIA_2026 |
+| 3 | 15–20 seconds, vertical. First frame: the team photograph already on the site. School permission for that photograph and the school wording was confirmed by the user on November 17. The permission paper stays private. | Suntem echipa HoloCAD, de la Liceul Internațional PREMS. Lucrăm la un concept pentru orele în care un desen plat nu ajunge. https://holocad26.pages.dev Samsung Solve for Tomorrow. #SFTRomania2026 #SFTRO26 #SFT_ROMANIA_2026 |
+
+After these three, keep a buffer of two or three different clips from the backlog above. The next honest ones are why a flat diagram is hard, how a floating-image display works as an explanation rather than a built device, and one teacher-reviewed question. A human still approves and uploads each clip.
+
+Unresolved: target platforms and handles, who posts, who gives final approval, the first public date, and which person is assigned to each clip. The site already links to https://www.instagram.com/holocad26/. The rules describe Facebook, Instagram, and TikTok. No automatic posting or paid campaign is configured.
