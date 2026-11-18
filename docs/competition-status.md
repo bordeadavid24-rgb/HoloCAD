@@ -1,13 +1,13 @@
 # Competition status for the current stage
 
-Checked November 17, 2026 against the public Samsung page and the rules PDF linked from it. This is a working summary for the team. It is not a copy of the regulation, and it does not replace the organizer's email.
+Checked November 17, 2026 against the public Samsung page and the rules PDF linked from it, and checked again on November 18. This is a working summary for the team. It is not a copy of the regulation, and it does not replace the organizer's email.
 
 Sources:
 
 - Public page: [samsung.com/ro/solvefortomorrow](https://www.samsung.com/ro/solvefortomorrow/)
 - Rules PDF linked from that page: [CompetitionRules12.pdf](https://stg-images.samsung.com/is/content/samsung/assets/ro/home/CompetitionRules12.pdf), 23 pages, file dated November 3, 2026
 
-The page says dates it publishes are part of the competition terms. The PDF and the page do not print the same registration deadline. The PDF says registration closed at 23:59 on November 3, 2026. The page calendar says the registration period is September 15 through November 17, 2026, and the page banner announces an extension. David confirmed on November 13 that HoloCAD is already registered. That date sits inside the extension shown on the page and after the date printed in the PDF. The confirmation email was not opened or stored here. Keep it privately and watch the inbox, including spam, for the organizer's next message.
+The page says dates it publishes are part of the competition terms. The PDF and the page do not print the same registration deadline. The PDF says registration closed at 23:59 on November 3, 2026. The page calendar says the registration period is September 15 through November 17, 2026, and the page banner announces an extension. David confirmed on November 13 that HoloCAD is already registered. That date sits inside the extension shown on the page and after the date printed in the PDF. The confirmation email was not opened or stored here. Keep it privately and watch the inbox, including spam, for the organizer's next message. On November 18 the public calendar still ends registration on November 17, 2026, while the page banner and the “Înscrie-te acum” link are still visible. HoloCAD stays registered. Do not submit another entry. The same page’s FAQ still quotes hashtags and dates from an earlier edition; the current social hashtags remain the three printed in the rules PDF.
 
 ## What the public rules allow now
 
